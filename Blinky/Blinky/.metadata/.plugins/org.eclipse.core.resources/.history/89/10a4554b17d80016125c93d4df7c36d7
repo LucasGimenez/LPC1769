@@ -1,4 +1,0 @@
-Archive member included because of file (symbol)
-
-/usr/local/lpcxpresso_7.9.0_455/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
-                              ./src/cr_startup_lpc175x_6x.o (__main)

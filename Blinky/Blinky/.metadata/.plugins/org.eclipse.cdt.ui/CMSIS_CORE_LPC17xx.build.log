@@ -1,6 +1,0 @@
-13:01:35 **** Build of configuration Debug for project CMSIS_CORE_LPC17xx ****
-make -r all 
-make: No se hace nada para 'all'.
-
-13:01:35 Build Finished (took 66ms)
-
