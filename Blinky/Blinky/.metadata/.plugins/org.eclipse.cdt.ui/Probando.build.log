@@ -1,0 +1,45 @@
+12:59:42 **** Build of configuration Debug for project Probando ****
+make -r all 
+Building file: ../src/Leds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/lucas/LPCXpresso/workspace/Segundo/Probando/inc" -I"/home/lucas/LPCXpresso/workspace/Segundo/CMSISv2p00_LPC17xx/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/Leds.d" -MT"src/Leds.o" -MT"src/Leds.d" -o "src/Leds.o" "../src/Leds.c"
+Finished building: ../src/Leds.c
+ 
+Building file: ../src/Probando.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/lucas/LPCXpresso/workspace/Segundo/Probando/inc" -I"/home/lucas/LPCXpresso/workspace/Segundo/CMSISv2p00_LPC17xx/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/Probando.d" -MT"src/Probando.o" -MT"src/Probando.d" -o "src/Probando.o" "../src/Probando.c"
+../src/Probando.c: In function 'main':
+../src/Probando.c:44:2: warning: implicit declaration of function 'led2_init' [-Wimplicit-function-declaration]
+  led2_init(); // Setup GPIO for LED2
+  ^
+../src/Probando.c:45:2: warning: implicit declaration of function 'led2_on' [-Wimplicit-function-declaration]
+  led2_on();  // Turn LED2 on
+  ^
+../src/Probando.c:58:6: warning: implicit declaration of function 'led2_invert' [-Wimplicit-function-declaration]
+      led2_invert(); // Toggle state of LED2
+      ^
+Finished building: ../src/Probando.c
+ 
+Building file: ../src/cr_startup_lpc175x_6x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/lucas/LPCXpresso/workspace/Segundo/Probando/inc" -I"/home/lucas/LPCXpresso/workspace/Segundo/CMSISv2p00_LPC17xx/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.c"
+Finished building: ../src/cr_startup_lpc175x_6x.c
+ 
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/lucas/LPCXpresso/workspace/Segundo/Probando/inc" -I"/home/lucas/LPCXpresso/workspace/Segundo/CMSISv2p00_LPC17xx/inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Building target: Probando.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/lucas/LPCXpresso/workspace/Segundo/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="Probando.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "Probando_Debug.ld" -o "Probando.axf"  ./src/Leds.o ./src/Probando.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+./src/Probando.o: In function `main':
+/home/lucas/LPCXpresso/workspace/Segundo/Probando/Debug/../src/Probando.c:44: undefined reference to `led2_init'
+makefile:30: fallo en las instrucciones para el objetivo 'Probando.axf'
+/home/lucas/LPCXpresso/workspace/Segundo/Probando/Debug/../src/Probando.c:45: undefined reference to `led2_on'
+/home/lucas/LPCXpresso/workspace/Segundo/Probando/Debug/../src/Probando.c:58: undefined reference to `led2_invert'
+collect2: error: ld returned 1 exit status
+make: *** [Probando.axf] Error 1
+
+12:59:43 Build Finished (took 381ms)
+

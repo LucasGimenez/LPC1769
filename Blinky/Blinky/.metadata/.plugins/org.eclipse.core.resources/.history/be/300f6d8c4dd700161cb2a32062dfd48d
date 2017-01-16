@@ -1,0 +1,60 @@
+/*
+===============================================================================
+ Name        : Probando.c
+ Author      : $(author)
+ Version     :
+ Copyright   : $(copyright)
+ Description : main definition
+===============================================================================
+*/
+
+#ifdef __USE_CMSIS
+#include "LPC17xx.h"
+#endif
+
+#include <cr_section_macros.h>
+
+#include "LPC17xx.h"
+
+
+#include "leds.h"
+
+volatile uint32_t msTicks; // counter for 1ms SysTicks
+
+// ****************
+//  SysTick_Handler - just increment SysTick counter
+void SysTick_Handler(void) {
+  msTicks++;
+}
+
+// ****************
+// systick_delay - creates a delay of the appropriate number of Systicks (happens every 1 ms)
+__INLINE static void systick_delay (uint32_t delayTicks) {
+  uint32_t currentTicks;
+
+  currentTicks = msTicks;	// read current tick counter
+  // Now loop until required number of ticks passes.
+  while ((msTicks - currentTicks) < delayTicks);
+}
+
+// ****************
+int main(void) {
+
+	led2_init();	// Setup GPIO for LED2
+	led2_on();		// Turn LED2 on
+
+	// Setup SysTick Timer to interrupt at 1 msec intervals
+	if (SysTick_Config(SystemCoreClock / 1000)) {
+	    while (1);  // Capture error
+	}
+
+
+	// Enter an infinite loop, just incrementing a counter and toggling leds every second
+	volatile static int i = 0 ;
+	while(1) {
+		i++;
+	    systick_delay (2000); // wait 2 seconds (2000ms)
+	    led2_invert();	// Toggle state of LED2
+	}
+	return 0 ;
+}
