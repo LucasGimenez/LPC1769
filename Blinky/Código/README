@@ -1,0 +1,7 @@
+Este código fuente fue escrito en C para el microcontrolador LPC1769.
+
+Consta de un programa (Original.c) que provoca un blinky en el led
+ubicado en el stick de dicho microcontrolador. En este caso no se
+hace uso del timer, sino, que los parpadeos del led son provocados
+a causa de bucles. Dentro del código se puede observar también como
+se hace uso de una función para complementar la salida GPIO.

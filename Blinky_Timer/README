@@ -1,0 +1,5 @@
+Este código fuente fue escrito en C para el microcontrolador LPC1769.
+
+Es un simple blinky al led del stick ubicado en el pin 22 del puerto 0,
+utilizando el timer para que los periodos sean igualmente espaciados en
+el dominio del tiempo.
